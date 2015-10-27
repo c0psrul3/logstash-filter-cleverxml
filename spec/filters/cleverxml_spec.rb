@@ -7,7 +7,7 @@ describe LogStash::Filters::Cleverxml do
   describe "parse standard xml (Deprecated checks)" do
     config <<-CONFIG
     filter {
-      xml {
+      cleverxml {
         source => "raw"
         target => "data"
       }
@@ -40,7 +40,7 @@ describe LogStash::Filters::Cleverxml do
   describe "parse standard xml but do not store (Deprecated checks)" do
     config <<-CONFIG
     filter {
-      xml {
+      cleverxml {
         source => "raw"
         target => "data"
         store_xml => false
@@ -57,7 +57,7 @@ describe LogStash::Filters::Cleverxml do
   describe "parse xml and store values with xpath (Deprecated checks)" do
     config <<-CONFIG
     filter {
-      xml {
+      cleverxml {
         source => "raw"
         target => "data"
         xpath => [ "/foo/key/text()", "xpath_field" ]
@@ -83,7 +83,7 @@ describe LogStash::Filters::Cleverxml do
   describe "parse standard xml" do
     config <<-CONFIG
     filter {
-      xml {
+      cleverxml {
         source => "xmldata"
         target => "data"
       }
@@ -116,7 +116,7 @@ describe LogStash::Filters::Cleverxml do
   describe "parse standard xml but do not store" do
     config <<-CONFIG
     filter {
-      xml {
+      cleverxml {
         source => "xmldata"
         target => "data"
         store_xml => false
@@ -133,7 +133,7 @@ describe LogStash::Filters::Cleverxml do
   describe "parse xml and store values with xpath" do
     config <<-CONFIG
     filter {
-      xml {
+      cleverxml {
         source => "xmldata"
         target => "data"
         xpath => [ "/foo/key/text()", "xpath_field" ]
@@ -157,7 +157,7 @@ describe LogStash::Filters::Cleverxml do
   describe "parse correctly non ascii content with xpath" do
     config <<-CONFIG
     filter {
-      xml {
+      cleverxml {
         source => "xmldata"
         target => "data"
         xpath => [ "/foo/key/text()", "xpath_field" ]
@@ -175,7 +175,7 @@ describe LogStash::Filters::Cleverxml do
   describe "parse including namespaces" do
     config <<-CONFIG
     filter {
-      xml {
+      cleverxml {
         source => "xmldata"
         xpath => [ "/foo/h:div", "xpath_field" ]
         remove_namespaces => false
@@ -192,7 +192,7 @@ describe LogStash::Filters::Cleverxml do
   describe "parse removing namespaces" do
     config <<-CONFIG
     filter {
-      xml {
+      cleverxml {
         source => "xmldata"
         xpath => [ "/foo/div", "xpath_field" ]
         remove_namespaces => true
